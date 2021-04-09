@@ -1,7 +1,8 @@
-package br.com.gestao.empregos.gestaoEmpregos.inscricao.service;
+package br.com.gestao.empregos.gestaoEmpregos.company.service;
 
+import br.com.gestao.empregos.gestaoEmpregos.company.Company;
+import br.com.gestao.empregos.gestaoEmpregos.company.repository.CompanyRepoitory;
 import br.com.gestao.empregos.gestaoEmpregos.usuario.User;
-import br.com.gestao.empregos.gestaoEmpregos.usuario.repository.UserRepositoty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -15,18 +16,18 @@ public class CompanyController {
 
 
     @Autowired
-    private UserRepositoty userRepositoty;
+    private CompanyRepoitory companyRepoitory;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<User>listUser() {
+    public Iterable<Company>listUser() {
 
-        return  userRepositoty.findAll();
+        return companyRepoitory.findAll();
     }
 
     @PostMapping(path = "/add")
-    public void insertUser(@RequestBody User user) {
+    public void insertUser(@RequestBody Company company) {
         try {
-            userRepositoty.save(user);
+            companyRepoitory.save(company);
 
         } catch(Error error) {
             error.getCause();
@@ -34,11 +35,11 @@ public class CompanyController {
     }
 
     @PutMapping(path = "/edit")
-    public void editUser(@RequestBody User user) {
-        userRepositoty.save(user);
+    public void editUser(@RequestBody Company company) {
+        companyRepoitory.save(company);
     }
     @DeleteMapping(value = "/delete/{id}")
     public @ResponseBody void deleteUser(@PathVariable(name = "id") long id){
-        userRepositoty.deleteById(id);
+        companyRepoitory.deleteById(id);
     };
 }

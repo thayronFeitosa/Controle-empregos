@@ -1,4 +1,4 @@
-package br.com.gestao.empregos.gestaoEmpregos.inscricao;
+package br.com.gestao.empregos.gestaoEmpregos.company;
 
 import javax.persistence.*;
 import java.util.Date;
