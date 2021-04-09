@@ -19,6 +19,12 @@ public class User implements Serializable {
     @Column(unique = true, nullable = false)
     private String cpf;
 
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Column(unique = true, nullable = false)
+    private String password;
+
     @Column(unique = false)
     private Date birthDate;
 
@@ -67,6 +73,14 @@ public class User implements Serializable {
 
     public String getAvatar() {
         return avatar;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setAvatar(String avatar) {
