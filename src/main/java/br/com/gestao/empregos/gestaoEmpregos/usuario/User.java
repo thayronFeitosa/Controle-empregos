@@ -1,4 +1,4 @@
-package br.com.gestao.empregos.gestaoEmpregos.vagas;
+package br.com.gestao.empregos.gestaoEmpregos.usuario;
 
 import javax.persistence.*;
 import java.io.Serializable;
